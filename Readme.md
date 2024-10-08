@@ -5,14 +5,21 @@ Q what is minify our app
 <!-- BUNDLERS : Vite , parcel, webpack -->
 node-modules -- database of our project
 * module can import and export , we can not import script
-(we have to specify type="module" in html script)
+(we have to specify type="module" in html script) -- deleted --
+* do not need to specify module in script tag -- updated
 * while we importing reactDOM from react-dom we have to import from react-dom/client
 * Anything which we can generate on server can we put inside gitignore
 * react uses much things to get fast
+* npx is use for executing
+* npm start is shortcut of npm run start
+* to remove clonsole.log use -- babel-plugin-transform-remove-console
+* Render means something updating in DOM
+* if we do not provide key than react has to do render dom , and it takes time , but when we will provide key than react just takes less effort to update
+
 
 
 <!--parcel does --- >
-HMR - Hot Module Reloading 
+HMR - Hot Module Replacement 
 File Watcher algorithm - c++
 Building
 minifying
@@ -27,6 +34,7 @@ HTTPS on dev  (npx parcel index.html --https)
 port Number
 Consistent Hashing Algorithm
 Zero Config
+Tree Shaking - Removing un-wanted
 
 
 
