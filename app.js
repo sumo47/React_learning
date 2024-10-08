@@ -1,4 +1,4 @@
-import React from 'react'
+import { createElement } from 'react'
 import ReactDOM from 'react-dom/client'
 
 
@@ -15,14 +15,14 @@ import ReactDOM from 'react-dom/client'
 </ul>
 </div> */}
 
-const container = React.createElement(
+const container = createElement(
     'div', { id: 'container' },
     [
-        React.createElement('h1', {key: "1",id: "title",}, "Navbar"),
-        React.createElement('ul', {},
-            React.createElement('li', {}, 'About'),
-            React.createElement('li', {}, "Contact us"),
-            React.createElement('li', {}, "Support"),
+        createElement('h1', { key: "1", id: "title", }, "Navbar"),
+        createElement('ul', {},
+            createElement('li', {}, 'About'),
+            createElement('li', {}, "Contact us"),
+            createElement('li', {}, "Support"),
         ),
 
     ])
