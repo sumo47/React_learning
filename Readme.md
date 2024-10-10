@@ -5,8 +5,7 @@ Q what is minify our app
 <!-- BUNDLERS : Vite , parcel, webpack -->
 node-modules -- database of our project
 * module can import and export , we can not import script
-(we have to specify type="module" in html script) -- deleted --
-* do not need to specify module in script tag -- updated
+(we have to specify type="module" in html script)
 * while we importing reactDOM from react-dom we have to import from react-dom/client
 * Anything which we can generate on server can we put inside gitignore
 * react uses much things to get fast
@@ -15,6 +14,8 @@ node-modules -- database of our project
 * to remove clonsole.log use -- babel-plugin-transform-remove-console
 * Render means something updating in DOM
 * if we do not provide key than react has to do render dom , and it takes time , but when we will provide key than react just takes less effort to update
+* babel convert jsx to React.createElement , babel is javascript trancscompiler , babel comes along with parcel
+* Component composition -  if i had to use component inside component , it's called component composition
 
 
 
