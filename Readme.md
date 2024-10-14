@@ -17,6 +17,15 @@ node-modules -- database of our project
 * babel convert jsx to React.createElement , babel is javascript trancscompiler , babel comes along with parcel
 * Component composition -  if i had to use component inside component , it's called component composition
 
+* Reac.Fragment - it is a component we wrap jsx into React.Fragment
+  - jsx expression must have one parent element
+  - ex = <React.Fragment>jsx<React.Fragment/> / <>jsx</>
+  - we can write React.Fragment as empty tag
+* Virtual dom = it is representation of Dom 
+* Reconciliation = Reconciliation in react used diff algorithm that finds out the difference between tree ,
+  - it will re-render only the difference portion in web
+
+* React Fiber - it is new Reconciliation engine in React 16
 
 
 <!--parcel does --- >
