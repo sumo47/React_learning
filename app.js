@@ -905,14 +905,15 @@ const restaurentList = [
 const imageUrl = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
 
 // no key (not acceptable) << index key (use only if you don't have anything) << unique key
-const RestaurentCard = ({resturent}) => {
+const RestaurentCard = ({ resturent }) => {
+    const { cloudinaryImageId, name, cuisines, avgRating } = resturent.card.card.info
     // console.log(props)
     return (
         <div className='card'>
-            <img src={imageUrl + resturent.card.card.info.cloudinaryImageId} />
-            <h2>{resturent.card.card.info.name}</h2>
-            <h5>{restaurentList[0].card.card.info.cuisines.join(" , ")}</h5>
-            <h5>{restaurentList[0].card.card.info.avgRating} stars</h5>
+            <img src={imageUrl + cloudinaryImageId} />
+            <h2>{name}</h2>
+            <h5>{cuisines.join(" , ")}</h5>
+            <h5>{avgRating} stars</h5>
         </div>
     )
 }
