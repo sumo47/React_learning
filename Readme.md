@@ -26,7 +26,8 @@ node-modules -- database of our project
   - it will re-render only the difference portion in web
 
 * React Fiber - it is new Reconciliation engine in React 16
-
+* function fn (parameter){}
+* fn(argument)
 
 <!--parcel does --- >
 HMR - Hot Module Replacement 
