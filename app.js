@@ -905,15 +905,15 @@ const restaurentList = [
 const imageUrl = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
 
 // no key (not acceptable) << index key (use only if you don't have anything) << unique key
-const RestaurentCard = ({ resturent }) => {
-    const { cloudinaryImageId, name, cuisines, avgRating } = resturent.card.card.info
+const RestaurentCard = ({ name, cuisines }) => {
+    // const { cloudinaryImageId, name, cuisines, avgRating } = resturent.card.card.info
     // console.log(props)
     return (
         <div className='card'>
-            <img src={imageUrl + cloudinaryImageId} />
+            {/* <img src={imageUrl + cloudinaryImageId} /> */}
             <h2>{name}</h2>
             <h5>{cuisines.join(" , ")}</h5>
-            <h5>{avgRating} stars</h5>
+            {/* <h5>{avgRating} stars</h5> */}
         </div>
     )
 }
@@ -921,11 +921,11 @@ const RestaurentCard = ({ resturent }) => {
 const Body = () => {
     return (
         <div className='restaurent-list'>
-            <RestaurentCard resturent={restaurentList[0]} />  {/* just like function call  */}
-            <RestaurentCard resturent={restaurentList[1]} />
-            <RestaurentCard resturent={restaurentList[2]} />
+            <RestaurentCard name={restaurentList[0].card.card.info.name} cuisines={restaurentList[0].card.card.info.cuisines} />  {/* just like function call  */}
+            <RestaurentCard name={restaurentList[1].card.card.info.name} cuisines={restaurentList[1].card.card.info.cuisines} />  {/* just like function call  */}
+            {/* <RestaurentCard resturent={restaurentList[2]} />
             <RestaurentCard resturent={restaurentList[3]} />
-            <RestaurentCard resturent={restaurentList[4]} />
+            <RestaurentCard resturent={restaurentList[4]} /> */}
 
 
         </div>
