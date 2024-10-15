@@ -905,7 +905,7 @@ const restaurentList = [
 const imageUrl = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
 
 // no key (not acceptable) << index key (use only if you don't have anything) << unique key
-const RestaurentCard = ({ cloudinaryImageId, name, cuisines, avgRating }) => {
+const RestaurentCard = ({ cloudinaryImageId, name, cuisines, avgRating, id }) => {
     // const { cloudinaryImageId, name, cuisines, avgRating } = resturent.card.card.info
     // console.log(props)
     return (
@@ -922,11 +922,12 @@ const Body = () => {
     return (
         <div className='restaurent-list'>
             {restaurentList.map((restaurent) => {
-                return <RestaurentCard {...restaurent.card.card.info} />; {/* just like function call  */ };
+                return <RestaurentCard {...restaurent.card.card.info} key={restaurent.card.card.info.id}/>; {/* just like function call  */ };
             })}
         </div>
     )
 }
+// why we can not use key in card class 
 
 const Footer = () => (
     <h4 className='footer'>Footer</h4>
