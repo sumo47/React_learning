@@ -1,50 +1,7 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import "./index.css"
+export const IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
 
-/*
-   Header 
-     - Logo (Title)
-     - Nav Items (Right Side)
-     - Cart
-   Body
-     - Search Bar
-     - Resturant List
-       - Restaurant Card (many cards)
-            - Image
-            - Name
-            - Rating 
-            - Cusines
-   Footer
-     - Links
-     - copyright
-*/
-
-
-const Logo = () => (
-    <div className='logo'>
-        <img src="https://www.ujudebug.com/wp-content/uploads/2019/08/food_villa-min.jpg" alt="logo" />
-    </div>
-)
-
-
-// Composing Component
-//! Read Optional chaning
-const HeaderComponent = () => {
-    return <div className='header'>
-        <Logo />
-        <div className="nav-items">
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-                <li>Cart</li>
-            </ul>
-        </div>
-    </div>
-}
 // Config driven UI
-const restaurentList = [
+export const restaurentList = [
     {
         "card": {
             "card": {
@@ -902,53 +859,3 @@ const restaurentList = [
     }
 
 ]
-const imageUrl = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
-
-// no key (not acceptable) << index key (use only if you don't have anything) << unique key
-const RestaurentCard = ({ cloudinaryImageId, name, cuisines, avgRating, id }) => {
-    // const { cloudinaryImageId, name, cuisines, avgRating } = resturent.card.card.info
-    // console.log(props)
-    return (
-        <div className='card'>
-            <img src={imageUrl + cloudinaryImageId} />
-            <h2>{name}</h2>
-            <h5>{cuisines.join(" , ")}</h5>
-            <h5>{avgRating} stars</h5>
-        </div>
-    )
-}
-
-const Body = () => {
-    return (
-        <div className='restaurent-list'>
-            {restaurentList.map((restaurent) => {
-                return <RestaurentCard {...restaurent.card.card.info} key={restaurent.card.card.info.id}/>; {/* just like function call  */ };
-            })}
-        </div>
-    )
-}
-// why we can not use key in card class 
-
-const Footer = () => (
-    <h4 className='footer'>Footer</h4>
-)
-
-
-const AppContent = () => {
-    return (
-        <>
-            <HeaderComponent />
-            <Body />
-            <Footer />
-        </>
-    )
-}
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'))
-
-// root.render(container) //expend it // can only rander one element
-//? can we create multiple root in react?
-
-// when i have to render my Functional component - 
-root.render(<AppContent />)
