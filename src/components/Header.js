@@ -3,7 +3,7 @@ import React from 'react'
 // By Name export
 export const Title = () => (
     <div className='logo'>
-        <img src="https://www.ujudebug.com/wp-content/uploads/2019/08/food_villa-min.jpg" alt="logo" />
+        <img src="https://trademaklogos.s3.ap-south-1.amazonaws.com/5438235.jpeg" alt="logo" />
     </div>
 )
 

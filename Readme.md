@@ -22,8 +22,8 @@ node-modules -- database of our project
   - ex = <React.Fragment>jsx<React.Fragment/> / <>jsx</>
   - we can write React.Fragment as empty tag
 * Virtual dom = it is representation of Dom 
-* Reconciliation = Reconciliation in react used diff algorithm that finds out the difference between tree ,
-  - it will re-render only the difference portion in web
+* Reconciliation = it is a process in react used diff algorithm that finds out the difference between tree ,
+  - it will re-render only the difference portion in web (more works of Reconciliation)
 
 * React Fiber - it is new Reconciliation engine in React 16
 * function fn (parameter){}

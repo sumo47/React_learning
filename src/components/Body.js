@@ -13,6 +13,9 @@ const filterData = (SearchText, restaurentList) => {
 const Body = () => {
     const [restaturent, setRestaurent] = useState(restaurentList)
     const [SearchText, setSearchText] = useState("KFC") // function to update the variable
+
+    console.log("render()") // whenever state variable changes react component will render again but apply only changes/updated node on actual dom 
+    // render again and check that what is updated in virtual dom so , the React fiber updated only updated things on actual dom
     return (
         <>
             <div className="search-container">
