@@ -29,6 +29,31 @@ node-modules -- database of our project
 * function fn (parameter){}
 * fn(argument)
 
+# two ways we can do to Load the Page - 
+  - load page - call the API - render page ---- ❌
+  - render page - api call - update UI -------- ✔️
+
+
+# useEffect 
+```bash 
+useEffect(() => {
+        console.log("call this when dependancy changes")
+    }, [SearchText])
+```
+    // call back function not called immediately , it will call when my useEffect wants to call 
+    // if we don't  wan't to call useEffect-callBack anytime , - pass in dependancy arry in to it
+    // overall - useEffect takes two parameters - 1. callback function 2.  dependancy array
+    // [] - Empty array - determines that call once after initial render (reload)
+    // [SearchText] -once after initial render +  whenever SearchText changes useEffect will call again and again
+
+
+# Can we write all javascript in jsx
+ - we can write javascript expression instead of statement
+ - we can change javascript statement to javascript expression
+  - ex - statement = a = 10,
+  -                  console.log(a)
+  -      expression - ((a = 10), console.log(a))
+
 <!--parcel does --- >
 HMR - Hot Module Replacement 
 File Watcher algorithm - c++
@@ -74,26 +99,6 @@ npx parcel index.html  <!-- index.html is entry point  of our app ,  npx means e
  parcel will build all the production files on dist folder
  -->
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
