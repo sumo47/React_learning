@@ -1,9 +1,9 @@
 * js engine gives us window functon
 
-Q what is minify our app
+ Q- what is minify our app
 
 <!-- BUNDLERS : Vite , parcel, webpack -->
-node-modules -- database of our project
+* node-modules -- database of our project
 * module can import and export , we can not import script
 (we have to specify type="module" in html script)
 * while we importing reactDOM from react-dom we have to import from react-dom/client
@@ -50,9 +50,27 @@ useEffect(() => {
 # Can we write all javascript in jsx
  - we can write javascript expression instead of statement
  - we can change javascript statement to javascript expression
-  - ex - statement = a = 10,
-  -                  console.log(a)
-  -      expression - ((a = 10), console.log(a))
+  - ex -
+     ``` statement = a = 10, ```
+         ```console.log(a) expression - ((a = 10),```
+         ```console.log(a))```
+
+# useState - 
+ - useState is a hook which react gives you to create local state varaible inside your functonal component 
+
+* never create component inside component
+* never create variable / useState inside if-else / case statement / for loop
+
+* never create useState inside useEffect // by tabnine(ai)
+* Error -```import { useRouteError } from 'react-router-dom'```
+* Route Error Handle - ```bash {path: "/", errorElement:<Error/>, element: <AppContent /> }```
+* Types of Route - 
+  1. client side route  - we don't want to load anyhing from server
+  2. Server side route
+  
+
+
+
 
 <!--parcel does --- >
 HMR - Hot Module Replacement 

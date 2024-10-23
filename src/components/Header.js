@@ -1,9 +1,11 @@
 import React from 'react'
+import logo from '../assets/img/logo.jpeg'
+import {Link} from 'react-router-dom'
 
 // By Name export
 export const Title = () => (
     <div className='logo'>
-        <img src="https://trademaklogos.s3.ap-south-1.amazonaws.com/5438235.jpeg" alt="logo" />
+        <img src={logo} alt="logo" />
     </div>
 )
 
@@ -15,9 +17,9 @@ const Header = () => {
         <Title />
         <div className="nav-items">
             <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/about'>About</Link></li>
+                <li><Link to = '/contact'> Contact</Link></li>
                 <li>Cart</li>
             </ul>
         </div>

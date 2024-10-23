@@ -15,13 +15,13 @@
 
 .header {
     top: 0;
-    position:sticky;
+    position: sticky;
     display: flex;
     justify-content: space-between;
     margin: 10px;
     background-color: rgb(76, 186, 186);
     border: 2px solid black;
-    border-left:none ;
+    border-left: none;
     border-right: none;
     border-top: none;
     border-radius: 8px;
@@ -83,14 +83,15 @@
     height: 200px;
 
 }
-.Simmer-Ui-Container{
+
+.Simmer-Ui-Container {
     display: flex;
     gap: 52px;
     flex-wrap: wrap;
     margin-left: 20px;
 }
 
-.Simmer-Ul-Card{
+.Simmer-Ul-Card {
     width: 200px;
     height: 300px;
     border-radius: 10px;

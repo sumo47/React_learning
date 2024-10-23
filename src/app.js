@@ -1,54 +1,39 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import "../index.css"    
-// import Header from './src/components/Header.js   //? also same 
-import Header from './components/Header' // default import syntax // Header can be any string
-// import {Title} from './src/components/Header' // By Name import 
-// import * as obj from './components/Header' // import all as object
+import "../index.css"
+import Header from './components/Header'
 import Body from './components/Body'
 import Footer from './components/Footer'
-
-// destructuring
-
-// const {Title} = obj // destructuring
-
-/*
-   Header 
-     - Logo (Title)
-     - Nav Items (Right Side)
-     - Cart
-   Body
-     - Search Bar
-     - Resturant List
-       - Restaurant Card (many cards)
-            - Image
-            - Name
-            - Rating 
-            - Cusines
-   Footer
-     - Links
-     - copyright
-*/
-
-
-
-
-
-
-
-
-
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
+import About from './components/about'
+import Error from './components/Error'
+import Contact from './components/Contact'
 
 const AppContent = () => {
-    return (
-        <>
-            <Header />
-            <Body />
-            <Footer />
-        </>
-    )
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  )
 }
 
+// Outlet for switch navigation with children
+
+const AppRouter = createBrowserRouter([
+
+  {
+    path: "/", errorElement: <Error />, element: <AppContent />,
+    children: [
+      { path: '/', element: <Body /> },
+      { path: '/about', element: <About /> },
+      { path: '/contact', element: <Contact /> }
+
+    ]
+  },
+
+])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -56,4 +41,4 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 //? can we create multiple root in react?
 
 // when i have to render my Functional component - 
-root.render(<AppContent />)
+root.render(<RouterProvider router={AppRouter} />)
