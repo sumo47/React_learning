@@ -66,7 +66,10 @@ useEffect(() => {
 * Route Error Handle - ```bash {path: "/", errorElement:<Error/>, element: <AppContent /> }```
 * Types of Route - 
   1. client side route  - we don't want to load anyhing from server
-  2. Server side route
+  2. Server side route\
+* Create component to make your code moduler, reusable, cleaner , maintaintable , testable
+* Link component using Ancor tag behind the seen
+* 
   
 
 

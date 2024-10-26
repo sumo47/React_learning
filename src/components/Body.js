@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 // import { restaurentList } from '../Constant'
 import RestaurentCard from './RestaurentCard'
 import SimmerUI from './SimmerUI'
+import {Link} from 'react-router-dom'
 
 const filterData = (SearchText, allRestaturent) => {
     return allRestaturent.filter((resturents) => resturents?.info?.name?.toLowerCase()?.includes(SearchText.toLowerCase()))
@@ -60,7 +61,7 @@ const Body = () => {
                         <h2>No Restaurants match</h2>
                     ) : (
                         filteredRestaurent.map((restaurent) => {
-                            return <RestaurentCard {...restaurent.info} key={restaurent.info.id} />;
+                            return <Link to={"/restaurent/" + restaurent.info.id} key={restaurent.info.id} ><RestaurentCard {...restaurent.info} /></Link>;
                         })
                     )
                 }
