@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import "../index.css"
 import Header from './components/Header'
@@ -9,6 +9,8 @@ import About from './components/about'
 import Error from './components/Error'
 import Contact from './components/Contact'
 import RestuarentMenu from './components/RestuarentMenu'
+import Profile from './components/Profile'
+// import ProfileClass from './components/ProfileClassComponent'
 
 const AppContent = () => {
   return (
@@ -28,7 +30,8 @@ const AppRouter = createBrowserRouter([
     path: "/", errorElement: <Error />, element: <AppContent />,
     children: [
       { path: '/', element: <Body /> },
-      { path: '/about', element: <About /> },
+      { path: '/about', element: <About />,
+        children: [{ path: 'profile', element: <Profile /> }]},
       { path: '/contact', element: <Contact /> },
       { path: '/Restaurent/:id', element: <RestuarentMenu /> },
 
