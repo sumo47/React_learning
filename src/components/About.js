@@ -1,5 +1,5 @@
 import React from 'react'
-// import ProfileFunctional from './Profile'
+import ProfileFunctional from './Profile'
 import ProfileClass from './ProfileClassComponent'
 // import { Outlet } from 'react-router-dom'
 
@@ -30,8 +30,8 @@ class About extends React.Component {
     console.log("parent - render")
     return <div>
       <h1>about</h1>
-      <ProfileClass name={"first child "} age={24} />
-      <ProfileClass name={"Second child"} age={24} />
+      {/* <ProfileClass name={"first child "} age={24} /> */}
+      <ProfileFunctional/>
     </div>
   }
 }
@@ -42,13 +42,14 @@ export default About
 // parent render 
 //   first child constructor 
 //   first child render
-//   second child constructor 
-//   second child render
+
+// parent componentDidMount
 
 // update dom
-
+// async and api call will take time so componentdidmount will call later
 //   first child componentDidMount
-//   second child componentDidMount
-// parent componentDidMount
+
+// after api call , state changed so render will happen 
+// first child  render
 
 // ! why we can make componentDidMount async but can not make async call-back of useEffect 
