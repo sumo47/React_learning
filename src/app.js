@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import "../index.css"
 import Header from './components/Header'
@@ -10,7 +10,20 @@ import Error from './components/Error'
 import Contact from './components/Contact'
 import RestuarentMenu from './components/RestuarentMenu'
 import Profile from './components/Profile'
+import SimmerUI from './components/SimmerUI'
 // import ProfileClass from './components/ProfileClassComponent'
+// import InstaMart from './components/instaMart'
+
+// Chunking
+// Code Splitting
+// Dynamic Bundling
+// Lazy Loading
+// On Demand Loading
+// Dynamic import 
+
+const InstaMart = lazy(() => import("./components/instaMart")) // promise
+//Upon on Demant Loading --> upon render ==> suspend loading
+// wrap InstaMart in Suspance than react will wait untill bundle of InstaMart will load
 
 const AppContent = () => {
   return (
@@ -30,15 +43,25 @@ const AppRouter = createBrowserRouter([
     path: "/", errorElement: <Error />, element: <AppContent />,
     children: [
       { path: '/', element: <Body /> },
-      { path: '/about', element: <About />,
-        children: [{ path: 'profile', element: <Profile /> }]},
+      {
+        path: '/about', element: <About />,
+        children: [{ path: 'profile', element: <Profile /> }]
+      },
       { path: '/contact', element: <Contact /> },
       { path: '/Restaurent/:id', element: <RestuarentMenu /> },
+      {
+        path: '/instamart',
+        element: (
+          <Suspense fallback = {<SimmerUI/>}>
+            <InstaMart />
+          </Suspense>)
+      },
 
     ]
   },
 
 ])
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 

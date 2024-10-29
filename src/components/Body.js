@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 // import { restaurentList } from '../Constant'
 import RestaurentCard from './RestaurentCard'
 import SimmerUI from './SimmerUI'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import useIsOnline from '../utility/useIsOnline'
 
 const filterData = (SearchText, allRestaturent) => {
     return allRestaturent.filter((resturents) => resturents?.info?.name?.toLowerCase()?.includes(SearchText.toLowerCase()))
@@ -11,7 +12,6 @@ const filterData = (SearchText, allRestaturent) => {
 const Body = () => {
     const [allRestaturent, setAllRestaurent] = useState([])
     const [filteredRestaurent, setFilteredRestaurent] = useState([])
-
     const [SearchText, setSearchText] = useState("KFC") // function to update the variable / initial value kfc
 
     useEffect(() => {
@@ -28,7 +28,11 @@ const Body = () => {
         // console.log(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
-    console.log("render()") 
+    if (!useIsOnline()) {
+        return <h1>🔴 No internet</h1>
+    }
+
+    console.log("render()")
     return (allRestaturent.length === 0) ? <SimmerUI /> : (
         <>
             <div className="search-container">

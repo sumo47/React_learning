@@ -39,6 +39,7 @@ class Profile extends React.Component {
     componentDidUpdate() { // calls after render when state is updated
         console.log(this.props.name + " componentDidUpdate")
     }
+    // clean up
     componentWillUnmount() { // when state is unmounted // calls after render // when component is destroyed // we changed to another component
         console.log(this.props.name + " componentWillUnmount")
         // cleanup code here  (like unsubscribing from API calls)

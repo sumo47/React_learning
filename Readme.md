@@ -69,7 +69,19 @@ useEffect(() => {
   2. Server side route\
 * Create component to make your code moduler, reusable, cleaner , maintaintable , testable
 * Link component using Ancor tag behind the seen
-* 
+
+* Modularity = we have boken down our code to meaningfull peaces
+* Lazy Loading / chunking => we use lazy function to load component on Demant 
+    ```const InstaMart = lazy(() => import("./components/instaMart")) ```
+    * problem -  upon loading  the page - it will take time to load the component so react suspend render it
+    * overcome - to overcome it we use Suspance function which will be called when the component is loaded again 
+      ```bash
+          <Suspense fallback = {<SimmerUI/>}>
+            <InstaMart />
+          </Suspense>) 
+    * Suspense = we use suspense to show loading animation while component is loading
+    * fallback - while again the component is loading , till simmerUI will show
+    * note - for small project chunking is not neccessary
   
 
 
