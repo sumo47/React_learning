@@ -35,10 +35,10 @@ const Body = () => {
     console.log("render()")
     return (allRestaturent.length === 0) ? <SimmerUI /> : (
         <>
-            <div className="search-container">
+            <div className="search-container p-5 bg-pink-300 my-5">
 
-                <input type="text" className='search-input' placeholder='Search'
-                    value={SearchText}
+                <input type="text" className='search-input rounded p-2 focus:bg-purple-50' placeholder='Search'
+                    // value={SearchText}
                     onChange={(e) => {
                         // e.target.value ==> whatever you write in input
                         setSearchText(e.target.value)
@@ -48,7 +48,8 @@ const Body = () => {
                         setFilteredRestaurent(data);
                     }} />
 
-                <button
+                <button 
+                className='p-2 bg-purple-400 hover:bg-purple-600 mx-2 rounded-md'
                     onClick={() => {
                         // need to filter data 
                         const data = filterData(SearchText, allRestaturent);
@@ -59,7 +60,7 @@ const Body = () => {
             </div>
             {/* {console.log(restaturent)} */}
 
-            <div className='restaurent-list'>
+            <div className='restaurent-list flex justify-around gap-2 flex-wrap p-3'>
                 {
                     filteredRestaurent.length === 0 ? (
                         <h2>No Restaurants match</h2>

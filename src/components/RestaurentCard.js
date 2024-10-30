@@ -6,12 +6,14 @@ const RestaurentCard = ({ cloudinaryImageId, name, cuisines, avgRating, id }) =>
     // const { cloudinaryImageId, name, cuisines, avgRating } = resturent.card.card.info
     // console.log(props)
     return (
-        <div className='card'>   {/** //! why we can not use key in card class  */}
+        <div className='card w-52  bg-purple-300 h-80 flex-row rounded-md shadow-md mb-3'>   {/** //! why we can not use key in card class  */}
 
-            <img src={IMG_CDN_URL + cloudinaryImageId} />
-            <h2>{name}</h2>
+            <img className='w-52 h-52 rounded-md' src={IMG_CDN_URL + cloudinaryImageId} />
+           <div className='pl-1 font-semibold'>
+           <h2 className='font-bold'>{name}</h2>
             <h5>{cuisines.join(" , ")}</h5>
             <h5>{avgRating} stars</h5>
+           </div>
         </div>
     )
 }

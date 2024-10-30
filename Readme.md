@@ -69,6 +69,7 @@ useEffect(() => {
   2. Server side route\
 * Create component to make your code moduler, reusable, cleaner , maintaintable , testable
 * Link component using Ancor tag behind the seen
+* Hook == create hook instead of Normal function
 
 * Modularity = we have boken down our code to meaningfull peaces
 * Lazy Loading / chunking => we use lazy function to load component on Demant 
@@ -82,6 +83,13 @@ useEffect(() => {
     * Suspense = we use suspense to show loading animation while component is loading
     * fallback - while again the component is loading , till simmerUI will show
     * note - for small project chunking is not neccessary
+
+# Tailwind Css 
+ * override all css
+ * easy to debug 
+ * less code is shipped 
+ * no duplicate css
+ * bundle size is small
   
 
 
@@ -118,7 +126,7 @@ HMR - hot module reload -- parcel have this feature -- using file watcher algori
 command i have used -- 
 npm init 
 npm install -d parcel  <!--to install parcel for development environment , not for production  (-d)  // same thing ->  npm install parcel --save-dev parccel -->
-npm i react , react-dom
+npm i react  react-dom
 npm install --save-dev parcel-bundler
 npx parcel index.html  <!-- index.html is entry point  of our app ,  npx means execute using npm -->
  - when i write `"npx parcel index.html"` it just create a development build for us and host on the server 
