@@ -36,21 +36,21 @@ const instaMart = () => {
                 title="About InstaMart"
                 paragraph="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti atque ipsum fuga commodi aperiam similique, iusto maiores animi reiciendis recusandae ad quo illo aliquam maxime error facere aut doloribus, pariatur id aliquid repellat labore! Assumenda fuga nam maxime rem repellat reprehenderit, numquam, ut cumque harum facilis laboriosam id optio illum. Ab molestiae, delectus sint cumque facere excepturi vero consequuntur dolorum quam labore placeat, hic aliquam. Voluptatibus, possimus? Expedita magni maiores veniam, soluta, quo earum beatae modi temporibus reiciendis ratione, similique sed? Nisi, maxime. Fuga aliquam nobis sit, ad, provident quisquam aspernatur rerum iste eveniet sequi ex delectus, suscipit beatae earum?"
                 isVisible={visibleSection == "about"}
-                SetIsVisible={(visible) => visible ? setIsVisibleSection('about') : setIsVisibleSection("")}
+                SetIsVisible={(visible) => visible? setIsVisibleSection('about'):setIsVisibleSection("")}
 
             />
             <Section
                 title="team InstaMart"
                 paragraph="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti atque ipsum fuga commodi aperiam similique, iusto maiores animi reiciendis recusandae ad quo illo aliquam maxime error facere aut doloribus, pariatur id aliquid repellat labore! Assumenda fuga nam maxime rem repellat reprehenderit, numquam, ut cumque harum facilis laboriosam id optio illum. Ab molestiae, delectus sint cumque facere excepturi vero consequuntur dolorum quam labore placeat, hic aliquam. Voluptatibus, possimus? Expedita magni maiores veniam, soluta, quo earum beatae modi temporibus reiciendis ratione, similique sed? Nisi, maxime. Fuga aliquam nobis sit, ad, provident quisquam aspernatur rerum iste eveniet sequi ex delectus, suscipit beatae earum?"
                 isVisible={visibleSection == "team"}
-                SetIsVisible={(visible) => visible ? setIsVisibleSection('team') : setIsVisibleSection("")}
+                SetIsVisible={(visible) => visible? setIsVisibleSection('team'):setIsVisibleSection("")}
 
             />
             <Section
                 title="Career InstaMart"
                 paragraph="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti atque ipsum fuga commodi aperiam similique, iusto maiores animi reiciendis recusandae ad quo illo aliquam maxime error facere aut doloribus, pariatur id aliquid repellat labore! Assumenda fuga nam maxime rem repellat reprehenderit, numquam, ut cumque harum facilis laboriosam id optio illum. Ab molestiae, delectus sint cumque facere excepturi vero consequuntur dolorum quam labore placeat, hic aliquam. Voluptatibus, possimus? Expedita magni maiores veniam, soluta, quo earum beatae modi temporibus reiciendis ratione, similique sed? Nisi, maxime. Fuga aliquam nobis sit, ad, provident quisquam aspernatur rerum iste eveniet sequi ex delectus, suscipit beatae earum?"
                 isVisible={visibleSection == "career"}
-                SetIsVisible={(visible) => visible ? setIsVisibleSection('career') : setIsVisibleSection("")}
+                SetIsVisible={(visible) => visible? setIsVisibleSection('career'):setIsVisibleSection("")}
 
             />
         </div>

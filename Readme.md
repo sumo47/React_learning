@@ -92,6 +92,7 @@ useEffect(() => {
  * bundle size is small
   
 * Prop Drilling - when we pass data using props from parent component to child component and to their child component  and so on 
+* Profiling from react dev lools - have to read
 
 
 

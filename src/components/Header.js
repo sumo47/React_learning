@@ -1,6 +1,10 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import logo from '../assets/img/logo.jpeg'
 import { Link } from 'react-router-dom'
+import userContext from '../utility/userContext'
+
+
+
 
 // By Name export
 export const Title = () => (
@@ -13,10 +17,13 @@ export const Title = () => (
 // Composing Component
 //! Read Optional chaning
 const Header = () => {
-    return <div className='flex justify-between bg-pink-600 shadow-xl' >
+    const {user} = useContext(userContext)
+
+    return <div className='flex justify-between items-center bg-pink-600 shadow-xl' >
         <Title />
+        <h2 className='text-2xl font-bold text-green-800'>{user.name}</h2>
         <div className="text-xl font-semibold">
-            <ul className='flex p-8'>
+            <ul className='flex'>
                 <li><Link className='p-2 hover:bg-purple-200' to='/'>Home</Link></li>
                 <li><Link className='p-2' to='/about'>About</Link></li>
                 <li><Link className='p-2' to='/contact'> Contact</Link></li>

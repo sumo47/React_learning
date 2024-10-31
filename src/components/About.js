@@ -1,6 +1,7 @@
 import React from 'react'
 import ProfileFunctional from './Profile'
-import ProfileClass from './ProfileClassComponent'
+import userContext from '../utility/userContext'
+// import ProfileClass from './ProfileClassComponent'
 // import { Outlet } from 'react-router-dom'
 
 // function About() {
@@ -30,6 +31,11 @@ class About extends React.Component {
     console.log("parent - render")
     return <div>
       <h1>about</h1>
+
+<userContext.Consumer>
+  {({user})=><h4 className='font-bold text-xl p-10'>{user.name} - {user.email}</h4>}
+</userContext.Consumer>
+
       {/* <ProfileClass name={"first child "} age={24} /> */}
       <ProfileFunctional/>
     </div>
