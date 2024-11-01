@@ -12,6 +12,8 @@ import RestuarentMenu from './components/RestuarentMenu'
 import Profile from './components/Profile'
 import SimmerUI from './components/SimmerUI'
 import UserContext from './utility/userContext'
+import { Provider } from 'react-redux'
+import store from './utility/store'
 // import ProfileClass from './components/ProfileClassComponent'
 // import InstaMart from './components/instaMart'
 
@@ -37,12 +39,13 @@ const AppContent = () => {
   })
   return (
     <>
-      <Header />
-      <UserContext.Provider value={{ user: user,  setUser: setUser }}>
-
-        <Outlet />
-        <Footer />
-      </UserContext.Provider>
+      <Provider store={store}>
+        <Header />
+        <UserContext.Provider value={{ user: user, setUser: setUser }}>
+          <Outlet />
+          <Footer />
+        </UserContext.Provider>
+      </Provider>
     </>
   )
 }

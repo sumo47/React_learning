@@ -1,7 +1,9 @@
-import React,{useContext} from 'react'
+import React, { useContext } from 'react'
 import logo from '../assets/img/logo.jpeg'
 import { Link } from 'react-router-dom'
 import UserContext from '../utility/userContext'
+import { useSelector } from 'react-redux'
+import { store } from '../utility/store'
 
 
 
@@ -17,7 +19,8 @@ export const Title = () => (
 // Composing Component
 //! Read Optional chaning
 const Header = () => {
-    const {user} = useContext(UserContext)
+    const { user } = useContext(UserContext)
+    const cartItems = useSelector(store => store.cart.items) // retrieve cart items
 
     return <div className='flex justify-between items-center bg-pink-600 shadow-xl' >
         <Title />
@@ -28,7 +31,7 @@ const Header = () => {
                 <li><Link className='p-2' to='/about'>About</Link></li>
                 <li><Link className='p-2' to='/contact'> Contact</Link></li>
                 <li><Link className='p-2' to='/instamart'> Insta-Mart</Link></li>
-                <li><Link className='p-2' to='#'>Cart</Link></li>
+                <li><Link className='p-2' to='#'>Cart has {cartItems.join(",")} item</Link></li>
             </ul>
         </div>
     </div>

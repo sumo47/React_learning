@@ -97,7 +97,8 @@ useEffect(() => {
 # useContext , userCreateContext
  - Usercontext.Provider can override the default value
  - i can modify our context for smaller portion of our app -
-  ``` javascript const AppContent = () => {
+ ````bash
+    const AppContent = () => {
   return (
     <>
       <Header />
@@ -106,8 +107,10 @@ useEffect(() => {
         <Footer />
       </UserContext.Provider>
     </>)}
+````
 
 
+* Data layer - UI layer
 
 
 
