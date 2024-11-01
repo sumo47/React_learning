@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import "../index.css"
 import Header from './components/Header'
@@ -11,6 +11,7 @@ import Contact from './components/Contact'
 import RestuarentMenu from './components/RestuarentMenu'
 import Profile from './components/Profile'
 import SimmerUI from './components/SimmerUI'
+import UserContext from './utility/userContext'
 // import ProfileClass from './components/ProfileClassComponent'
 // import InstaMart from './components/instaMart'
 
@@ -25,12 +26,23 @@ const InstaMart = lazy(() => import("./components/instaMart")) // promise
 //Upon on Demant Loading --> upon render ==> suspend loading
 // wrap InstaMart in Suspance than react will wait untill bundle of InstaMart will load
 
+
+
 const AppContent = () => {
+  const [user, setUser] = useState({
+    name: 'John Doe',
+    age: 30,
+    email: 'johndoe@example.com',
+    address: '123 Main St'
+  })
   return (
     <>
       <Header />
-      <Outlet />
-      <Footer />
+      <UserContext.Provider value={{ user: user,  setUser: setUser }}>
+
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </>
   )
 }
@@ -52,7 +64,7 @@ const AppRouter = createBrowserRouter([
       {
         path: '/instamart',
         element: (
-          <Suspense fallback = {<SimmerUI/>}>
+          <Suspense fallback={<SimmerUI />}>
             <InstaMart />
           </Suspense>)
       },

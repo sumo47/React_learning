@@ -94,6 +94,21 @@ useEffect(() => {
 * Prop Drilling - when we pass data using props from parent component to child component and to their child component  and so on 
 * Profiling from react dev lools - have to read
 
+# useContext , userCreateContext
+ - Usercontext.Provider can override the default value
+ - i can modify our context for smaller portion of our app -
+  ``` javascript const AppContent = () => {
+  return (
+    <>
+      <Header />
+      <UserContext.Provider value={{ user: user }}>
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </>)}
+
+
+
 
 
 

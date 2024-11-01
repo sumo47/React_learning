@@ -1,7 +1,7 @@
 import React,{useContext} from 'react'
 import logo from '../assets/img/logo.jpeg'
 import { Link } from 'react-router-dom'
-import userContext from '../utility/userContext'
+import UserContext from '../utility/userContext'
 
 
 
@@ -17,7 +17,7 @@ export const Title = () => (
 // Composing Component
 //! Read Optional chaning
 const Header = () => {
-    const {user} = useContext(userContext)
+    const {user} = useContext(UserContext)
 
     return <div className='flex justify-between items-center bg-pink-600 shadow-xl' >
         <Title />
