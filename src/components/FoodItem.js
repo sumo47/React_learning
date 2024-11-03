@@ -5,7 +5,7 @@ import UserContext from '../utility/userContext'
 
 
 // no key (not acceptable) << index key (use only if you don't have anything) << unique key
-const RestaurentCard = ({ cloudinaryImageId, name, cuisines, avgRating, id }) => {
+const FoodItem = ({ cloudinaryImageId, name, cuisines, avgRating, id }) => {
     // const { cloudinaryImageId, name, cuisines, avgRating } = resturent.card.card.info
     // console.log(props)
 
@@ -26,4 +26,4 @@ const RestaurentCard = ({ cloudinaryImageId, name, cuisines, avgRating, id }) =>
     )
 }
 
-export default RestaurentCard
+export default FoodItem

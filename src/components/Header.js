@@ -3,7 +3,7 @@ import logo from '../assets/img/logo.jpeg'
 import { Link } from 'react-router-dom'
 import UserContext from '../utility/userContext'
 import { useSelector } from 'react-redux'
-import { store } from '../utility/store'
+// import { store } from '../utility/store'
 
 
 
@@ -31,7 +31,7 @@ const Header = () => {
                 <li><Link className='p-2' to='/about'>About</Link></li>
                 <li><Link className='p-2' to='/contact'> Contact</Link></li>
                 <li><Link className='p-2' to='/instamart'> Insta-Mart</Link></li>
-                <li><Link className='p-2' to='#'>Cart has {cartItems.join(",")} item</Link></li>
+                <li><Link className='p-2' to='cart'>Cart has [ {cartItems.length}] item</Link></li>
             </ul>
         </div>
     </div>

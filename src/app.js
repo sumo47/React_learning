@@ -14,6 +14,7 @@ import SimmerUI from './components/SimmerUI'
 import UserContext from './utility/userContext'
 import { Provider } from 'react-redux'
 import store from './utility/store'
+import Cart from './components/Cart'
 // import ProfileClass from './components/ProfileClassComponent'
 // import InstaMart from './components/instaMart'
 
@@ -71,6 +72,7 @@ const AppRouter = createBrowserRouter([
             <InstaMart />
           </Suspense>)
       },
+      { path: "/cart", element: <Cart /> }
 
     ]
   },
