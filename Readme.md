@@ -1,6 +1,8 @@
 * js engine gives us window functon
 
  Q- what is minify our app
+ 
+* normal javascript files does not understand import  - type="module" - index.html
 
 <!-- BUNDLERS : Vite , parcel, webpack -->
 * node-modules -- database of our project
@@ -112,6 +114,77 @@ useEffect(() => {
 
 * Data layer - UI layer
 
+# Testing Our APP 
+ - Test Driven devlopment - search online  - should have idea about it
+ 
+* Different types of Testing - 
+  - Manual Testing
+  - Automation Testing
+     - Selenium Testing , cypress testing
+  - End to End (E2E) Testing - Covers Entire users Journey
+     - Headless Browser
+  
+  - Unit Testing 
+  - Integration Testing
+
+* React Testing Library - `https://testing-library.com/docs/react-testing-library/intro/`
+ - This library is a replacement for Enzyme. 
+ - it uses Jest behind the scenes
+ - 
+* Jest - it is a delightful javascript Testing Framework with a focus on simlicity .
+  -   
+
+* Steps 
+ - Install REact Testing Library - `npm install --save-dev @testing-library/react @testing-library/dom`
+ - install jest -  `npm i -D jest `
+ - configure jest - create jest.config.js  /  `npx jest --init`
+    - typescript - no , environment - jsdom , add coverage report , provider for coverage - babel , clear mock calls etc - yes 
+ - installed jest-environment-jsdom`npm i -D jest-environment-jsdom `
+ - Create my first test
+ - error - import does not work 
+   -install dependencies for it `npm install --save-dev babel-jest @babel/core @babel/preset-env`
+   - in .babelrc or babel.config.js - `"presets": [["@babel/preset-env", {"targets": {"node": "current"}}]]`
+     - `https://jestjs.io/docs/getting-started#using-babel`
+ - Wrote expect sum test
+ - gitignore coverage report
+ - error - jsx currently not enabeled 
+   - install dependencies for it -  `npm i -D @babel/preset-react` 
+   - add config - `{"presets": [ ["@babel/preset-env", {"targets": {"node": "current"}}]]}`
+ - error - image can not read by testing library 
+   - create mock for it , and config on jest.config.js - `moduleNameMapper: { "\\.(jpeg|png|gif)$": "../mocks/dummyLogo.js"},`
+ - error - Should be wrapped in provider -  `(    could not find react-redux context value; please ensure the component is wrapped in a <Provider>)`
+   
+   ```http
+    import { render } from "@testing-library/react"
+    import Header from "../Header"
+    import { Provider } from "react-redux"
+    import store from "../../utility/store"
+
+    test("Logo should load on rendering header", () => {
+    // Load Header
+    const header = render(<Provider store={store}><Header /></Provider>) // we have to import render , because Header should be render on jsdom
+    // Check if logo is loaded
+    })
+   ```
+ - error - `(TypeError: Cannot destructure property 'basename' of 'React__namespace.useContext(...)' as it is null.)`
+   - solution - 
+     - import StaticRouter from react-router-dom/server - `import { StaticRouter } from "react-router-dom/server"`
+     - wrap component in it `<StaticRouter> <Provider store={store}> <Header /> </Provider></StaticRouter>`
+ - error - fetch is not defined
+   - ```http
+        global.fetch = jest.fn(() => {
+         return Promise.resolve({
+          json:()=> Promise.resolve(RESTAUREMT_DATA)
+        })
+      })````
+ - Add HMR for Testing - add script into package.json
+    - `"watch-test":"jest --watch"`
+ - for Await use - waitFor() - import as name from @testing-library/react - 
+   - ex- `await waitFor(() => expect(body.getByTestId("search-btn")));`
+ - to click on any element use - fireEvent
+
+* notes - 
+  - we are not running test on brower , running on jsdom
 
 
 

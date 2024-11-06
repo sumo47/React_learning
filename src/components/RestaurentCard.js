@@ -1,29 +1,43 @@
-import React, { useContext } from 'react'
-import { IMG_CDN_URL } from '../Constant'
-import UserContext from '../utility/userContext'
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import { IMG_CDN_URL } from '../Constant';
+import UserContext from '../utility/userContext';
 
-
-
-// no key (not acceptable) << index key (use only if you don't have anything) << unique key
-const RestaurentCard = ({ cloudinaryImageId, name, cuisines, avgRating, id }) => {
-    // const { cloudinaryImageId, name, cuisines, avgRating } = resturent.card.card.info
-    // console.log(props)
-
-    const { user } = useContext(UserContext)
+const RestaurantCard = ({ cloudinaryImageId, name, cuisines, avgRating, id }) => {
+    const { user } = useContext(UserContext);
 
     return (
-        <div className='flex flex-col justify-between w-52 h-full  bg-purple-300 h-80 flex-row rounded-md shadow-md mb-3'>   {/** //! why we can not use key in card class  */}
-
-            <img className='w-52 h-52 rounded-md' src={IMG_CDN_URL + cloudinaryImageId} />
+        <div 
+            className='flex flex-col justify-between w-52 h-90 bg-purple-300 rounded-md shadow-md mb-3 p-2' key={id} >
+            <img 
+                className='w-52 h-52 rounded-md object-cover'
+                src={cloudinaryImageId ? `${IMG_CDN_URL}${cloudinaryImageId}` : '/path/to/default-image.jpg'}
+                alt={`${name} image`}
+                onError={(e) => { e.target.onerror = null; e.target.src = '/path/to/default-image.jpg'; }}
+            />
             <div className='pl-1 font-semibold'>
-                <h2 className='font-bold'>{name}</h2>
-                <h5>{cuisines.slice(0, 3).join(" , ")} ...</h5>
-                <h5>{avgRating} stars</h5>
-                <h6>{user.name}</h6>
-                <h6>{user.email}</h6>
+                <h2 className='font-bold truncate'>{name}</h2>
+                <h5>{cuisines?.slice(0, 3).join(", ")}...</h5>
+                <h5>{avgRating ? `${avgRating} stars` : 'No rating available'}</h5>
+                {user && (
+                    <>
+                        <h6 className='text-sm text-gray-700'>{user.name}</h6>
+                        <h6 className='text-sm text-gray-500'>{user.email}</h6>
+                    </>
+                )}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default RestaurentCard
+RestaurantCard.propTypes = {
+    cloudinaryImageId: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    cuisines: PropTypes.arrayOf(PropTypes.string),
+    avgRating: PropTypes.number,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+}; // gpt
+
+export default RestaurantCard;
+
+// gpt

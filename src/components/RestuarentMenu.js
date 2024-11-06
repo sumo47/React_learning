@@ -1,39 +1,56 @@
-import React from 'react'
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { IMG_CDN_URL, FETCH_MENU_URL } from '../Constant';
-import SimmerUI from './SimmerUI';
+import SimmerUI from './Shimmer';
 import useRestaurent from '../utility/useRestaurent';
-import { useDispatch } from 'react-redux'
-import { addItem } from '../utility/cartSlice'
+import { useDispatch } from 'react-redux';
+import { addItem } from '../utility/cartSlice';
 
 const RestuarentMenu = () => {
-
-    const dispatch = useDispatch()
-
-    const handleAddItem = (name) => {
-        dispatch(addItem(name)) // dispatch addItem function with data
-    }
+    const dispatch = useDispatch();
     const { id } = useParams();
 
-    const restaurantData = useRestaurent(FETCH_MENU_URL, id)
-    const data = restaurantData?.data?.cards[2]?.card?.card?.info
-    // console.log(data)
+    // Fetch restaurant data
+    const restaurantData = useRestaurent(FETCH_MENU_URL, id);
+    const data = restaurantData?.data?.cards[2]?.card?.card?.info;
 
-    return (!restaurantData) ? <SimmerUI /> : (
-        <div>
-            <div className='image'>
-                <img className='w-52' src={IMG_CDN_URL + data.cloudinaryImageId} alt="Rstaurent_logo" />
-                <h1>{data.name}</h1>
-                <h4>{data.avgRating} star</h4>  
-                <h4>{data.cuisines}</h4>
-                <h1>hbjnkml,;;</h1>
+    // Add item to cart
+    const handleAddItem = () => {
+        if (data) {
+            dispatch(addItem(data)); // Dispatching entire data object
+        }
+    };
+
+    // Show loading shimmer if data is not yet loaded
+    if (!restaurantData) return <SimmerUI />;
+
+    return (
+        <div className='p-4' >
+            <div className='flex flex-col items-center'>
+                {/* Restaurant Image */}
+                <div className='image mb-4'>
+                    <img 
+                        className='w-52 rounded-md shadow-lg' 
+                        src={IMG_CDN_URL + data?.cloudinaryImageId} 
+                        alt={`${data?.name} Logo`} 
+                    />
+                </div>
+
+                {/* Restaurant Details */}
+                <h1 className='text-2xl font-bold mb-2'>{data?.name || "Restaurant Name"}</h1>
+                <p className='text-gray-600'>{data?.avgRating || "N/A"} ⭐</p>
+                <p className='text-gray-700'>{data?.cuisines?.join(', ') || "Cuisines"}</p>
+
+                {/* Order Button */}
+                <button data-testid="order"
+                    className='bg-blue-500 text-white px-4 py-2 mt-4 rounded-md hover:bg-blue-600'
+                    onClick={handleAddItem}
+                >
+                    Order Now
+                </button>
             </div>
-            <div className='flex'> <button className='bg-blue-500 text-white px-4 py-2 rounded-md'
-                onClick={() => handleAddItem(data)}
-            >Order Now</button></div>
         </div>
-
-    )
-}
+    );
+};
 
 export default RestuarentMenu;

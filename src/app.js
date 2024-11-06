@@ -10,11 +10,13 @@ import Error from './components/Error'
 import Contact from './components/Contact'
 import RestuarentMenu from './components/RestuarentMenu'
 import Profile from './components/Profile'
-import SimmerUI from './components/SimmerUI'
+import SimmerUI from './components/Shimmer'
 import UserContext from './utility/userContext'
 import { Provider } from 'react-redux'
 import store from './utility/store'
 import Cart from './components/Cart'
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 // import ProfileClass from './components/ProfileClassComponent'
 // import InstaMart from './components/instaMart'
 
@@ -64,7 +66,7 @@ const AppRouter = createBrowserRouter([
         children: [{ path: 'profile', element: <Profile /> }]
       },
       { path: '/contact', element: <Contact /> },
-      { path: '/Restaurent/:id', element: <RestuarentMenu /> },
+      { path: '/restaurant/:id', element: <RestuarentMenu /> },
       {
         path: '/instamart',
         element: (
