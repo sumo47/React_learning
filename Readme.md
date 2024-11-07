@@ -189,6 +189,34 @@ useEffect(() => {
 
 
 
+# Machine Coding - create Youtube in 2 hours
+ - Requirement clarification - 5 min
+ - Features
+ - Tech Stack
+   - Redux
+   - Tailwind
+   - react-router-dom
+   - bundler
+   - jest, react-testing-library
+
+- Planning - 5min
+  - disscuss architecture with interviewer
+
+- npx create-react-app namaste-youtube
+  - i am executing create-react-app once using npx
+
+- Self Explore
+  - reportWebVitals.js
+  - <React.StrictMode/>
+  
+
+
+
+
+
+
+
+
 <!--parcel does --- >
 HMR - Hot Module Replacement 
 File Watcher algorithm - c++
