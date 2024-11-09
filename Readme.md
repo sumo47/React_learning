@@ -209,7 +209,8 @@ useEffect(() => {
   - reportWebVitals.js
   - <React.StrictMode/>
   
-
+# Higher Order Components
+ - it is a function that takes a component and returns a component
 
 
 
