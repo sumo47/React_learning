@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const SideBar = () => {
     return (
@@ -7,7 +8,7 @@ const SideBar = () => {
         <div className="space-y-4">
             <ul className="flex items-center cursor-pointer p-2 rounded-lg hover:bg-gray-200 hover:text-red-500 transition-all duration-100 ease-in-out">
                 <span className="material-icons mr-2">home</span>
-                <span>Home</span>
+                <Link to="/"><span>Home</span></Link>
             </ul>
             <ul className="flex items-center cursor-pointer p-2 rounded-lg hover:bg-gray-200 hover:text-red-500 transition-all duration-100 ease-in-out">
                 <span className="material-icons mr-2">play_arrow</span>

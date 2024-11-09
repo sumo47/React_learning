@@ -1,11 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { YOUTUBE_API } from "../utility/constant";
+import Video from "./Video.js";
+import { Link } from "react-router-dom";
 
 const VideoContainer = () => {
-  return (
-    <div>
-      <h1>VideoContainer</h1>
-    </div>
-  )
-}
+  const [VideosList, setVideosList] = useState([]);
 
-export default VideoContainer
+  useEffect(() => {
+    getVideos();
+  }, []);
+
+  const getVideos = async () => {
+    // Make API call to fetch videos
+    const response = await fetch(YOUTUBE_API);
+    const videos = await response.json();
+    setVideosList(videos.items); // Assuming first video is the one we want to display
+  };
+
+  // console.log(VideosList);
+  return (
+    <div className="flex flex-wrap gap-5">
+      {VideosList.map((video) => {
+        return (
+          <Link to={"watch?v=" + video.id}>
+            <Video {...video} key={video.id} />
+          </Link>
+        );
+      })}
+    </div>
+  );
+};
+
+export default VideoContainer;
