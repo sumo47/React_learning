@@ -212,6 +212,18 @@ useEffect(() => {
 # Higher Order Components
  - it is a function that takes a component and returns a component
 
+# Search Components
+ - Debouncing - 
+    typing slow = 200ms
+    typing fast = 30ms
+
+    Performance :
+      - iphone pro max = 14 latter * 1000 = 14000
+      - with debouncing = 3 API calls * 1000 = 3000
+  - Debouncing with 200ms
+    - if difference between 2 key strokes is <200ms - Decline API Call
+    - >200ms make an API call
+
 
 
 

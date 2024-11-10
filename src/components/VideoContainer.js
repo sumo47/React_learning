@@ -23,8 +23,8 @@ const VideoContainer = () => {
       {VideosList[0] && <AddVideo info={VideosList[0]} />}
       {VideosList.map((video) => {
         return (
-          <Link to={"watch?v=" + video.id}>
-            <Video {...video} key={video.id} />
+          <Link key={video.id} to={"watch?v=" + video.id}>
+            <Video {...video}  />
           </Link>
         );
       })}

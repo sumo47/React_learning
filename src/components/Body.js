@@ -8,7 +8,7 @@ const Body = () => {
   const Menu = useSelector(store => store.app.isMenuOpen)
   console.log(Menu)
   return (
-    <div className='grid grid-flow-col'>
+    <div className='grid grid-flow-col mt-16'>
       {Menu && <SideBar />}
       <Outlet/>
     </div>

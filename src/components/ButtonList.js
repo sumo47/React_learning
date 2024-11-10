@@ -6,7 +6,7 @@ const ButtonList = () => {
   const ButtonList = ["All", "Live", "Cricket", "News", "Music","Mixes", "Deep House", "Bass", "Electro-Pop"]
 
   return (
-    <div className='flex'>
+    <div className='flex mt-1'>
       {ButtonList.map((nameOfButton) => <Button key={nameOfButton} name={nameOfButton} />)}
     </div>
   )
