@@ -45,10 +45,10 @@ function Video({ snippet, statistics }) {
   );
 }
 
-export const AddVideo = ({info}) => {
+export const AddVideo = ({ info }) => {
   return (
     <div className="p-1 m-1 border border-red-600">
-      <Video {...info}/>
+      <Video {...info} />
     </div>
   );
 };

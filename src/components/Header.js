@@ -30,8 +30,8 @@ const Header = () => {
     const timer = setTimeout(() => {
       if (searchCache[searchText]) {
         setSuggestions(searchCache[searchText]);
-      }else{
-        fetchSearchText()
+      } else {
+        fetchSearchText();
       }
     }, 200);
     // Make an api call after every key press
