@@ -223,6 +223,24 @@ useEffect(() => {
   - Debouncing with 200ms
     - if difference between 2 key strokes is <200ms - Decline API Call
     - >200ms make an API call
+  - cache the search results to avoid api calls 
+
+# Time complexity
+  - time complexity to search in array  = O(n)
+  - time complexity to search in object = O(1)
+
+    [i, ip, iph, iphone]
+
+    {
+      i:
+      ip:
+      iph:
+      iphone:
+    }
+
+    - new Map - more optimized for searching in objects
+
+  
 
 
 

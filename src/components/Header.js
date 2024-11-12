@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utility/appSlice";
 import { SEARCH_API } from "../utility/constant";
+import { cacheResults } from "../utility/searchSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -10,14 +11,29 @@ const Header = () => {
     dispatch(toggleMenu());
   };
 
+  const addCacheResultsHandler = (resultsArray) => {
+    dispatch(
+      cacheResults({
+        [searchText]: resultsArray,
+      })
+    );
+  };
+
+  const searchCache = useSelector((store) => store.search);
+
   const [searchText, setSearchText] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
 
-  console.log("render");
   useEffect(() => {
     // API Call
-    const timer = setTimeout(() => fetchSearchText(), 200);
+    const timer = setTimeout(() => {
+      if (searchCache[searchText]) {
+        setSuggestions(searchCache[searchText]);
+      }else{
+        fetchSearchText()
+      }
+    }, 200);
     // Make an api call after every key press
     // but if the difference between 2 API calls is <200ms
     // decline the API call
@@ -44,9 +60,10 @@ const Header = () => {
   const fetchSearchText = async () => {
     const data = await fetch(SEARCH_API + searchText);
     const json = await data.json();
-    console.log(json);
     setShowSuggestions(json[1]?.length > 0);
-    setSuggestions(json[1])
+    setSuggestions(json[1]);
+    addCacheResultsHandler(json[1]); // Assuming first suggestion is the one we want to display
+    console.log("API Call - " + searchText);
   };
 
   return (
@@ -77,8 +94,8 @@ const Header = () => {
                 setSearchText(e.target.value);
                 setShowSuggestions(e.target.value.length > 0);
               }}
-              onFocus={()=> setShowSuggestions(suggestions[1]?.length > 0)}
-              onBlur={()=> setShowSuggestions(false)}
+              onFocus={() => setShowSuggestions(suggestions[1]?.length > 0)}
+              onBlur={() => setShowSuggestions(false)}
               placeholder="Search"
               className="pl-4 shadow-md border border-gray-300 rounded-l-full p-2 w-full focus:outline-none hover:border-blue-500"
               type="text"
@@ -101,7 +118,7 @@ const Header = () => {
                       setShowSuggestions(false);
                     }}
                   >
-                   🔍 {suggestion}
+                    🔍 {suggestion}
                   </li>
                 ))}
               </ul>
