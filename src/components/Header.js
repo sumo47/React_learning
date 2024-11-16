@@ -60,6 +60,7 @@ const Header = () => {
   const fetchSearchText = async () => {
     const data = await fetch(SEARCH_API + searchText);
     const json = await data.json();
+    console.log(json);
     setShowSuggestions(json[1]?.length > 0);
     setSuggestions(json[1]);
     addCacheResultsHandler(json[1]); // Assuming first suggestion is the one we want to display

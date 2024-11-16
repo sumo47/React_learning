@@ -5,3 +5,6 @@ export const YOUTUBE_API =
   API_KEY;
 
 export const SEARCH_API = `http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=`;
+export const LIVECHAT_COUNT = 250
+
+// live chat >>>> infinite scroll >>>> pagination

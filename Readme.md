@@ -240,7 +240,15 @@ useEffect(() => {
 
     - new Map - more optimized for searching in objects
 
-  
+# Live Chat -- 
+ - Challanges 
+   - DL - Get Data Live 
+   - UI - Update the UI - should not crash page due to overloading
+ - Ways 
+   - Web Scocket - it connect handshake UI to server so quickly send data from either side , it's a biedirectional (Stock market plateform/trading apps/ Live chat apps/ whatsapp / )
+   - API Polling - in API polling one way fetch data, it fetch in interval (Gmail/ crickbuzz / youtube live chat)
+   
+
 
 
 
