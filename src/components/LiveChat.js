@@ -23,7 +23,7 @@ const LiveChat = () => {
     return () => {
       clearInterval(i); // if we will not clear the interval than it will continiously calling api even we are on another page
     };
-  }, []);
+  });
 
   const handleSend = () => {
     // Send Message to the server
