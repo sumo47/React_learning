@@ -184,7 +184,7 @@ useEffect(() => {
  - to click on any element use - fireEvent
 
 * notes - 
-  - we are not running test on brower , running on jsdom
+  - we are not running test on browser , running on jsdom
 
 
 
