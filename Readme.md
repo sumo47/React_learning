@@ -17,7 +17,7 @@
 * babel convert jsx to React.createElement , babel is javascript trancscompiler , babel comes along with parcel
 * Component composition -  if i had to use component inside component , it's called component composition
 
-* Reac.Fragment - it is a component we wrap jsx into React.Fragment
+* React.Fragment - it is a component we wrap jsx into React.Fragment
   - jsx expression must have one parent element
   - ex = <React.Fragment>jsx<React.Fragment/> / <>jsx</>
   - we can write React.Fragment as empty tag
@@ -71,7 +71,7 @@ useEffect(() => {
 * Link component using Ancor tag behind the seen
 * Hook == create hook instead of Normal function
 
-* Modularity = we have boken down our code to meaningfull peaces
+* Modularity = we have broken down our code to meaningfull peaces
 * Lazy Loading / chunking => we use lazy function to load component on Demant 
     ```const InstaMart = lazy(() => import("./components/instaMart")) ```
     * problem -  upon loading  the page - it will take time to load the component so react suspend render it
