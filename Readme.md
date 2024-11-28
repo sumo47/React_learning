@@ -248,7 +248,10 @@ useEffect(() => {
    - Web Scocket - it connect handshake UI to server so quickly send data from either side , it's a biedirectional (Stock market plateform/trading apps/ Live chat apps/ whatsapp / )
    - API Polling - in API polling one way fetch data, it fetch in interval (Gmail/ crickbuzz / youtube live chat)
    
-
+# UseMemo 
+ - `useMemo` is React Hook that lets you cache the result of a calculation between re-renders.
+ - `useCallback` - is React Hook that lets you cache a function defination between rer-renders.
+   - kind of similar to useMemo
 
 
 
